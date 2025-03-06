@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface PizzaBuilder {
 
-    class Builder {
+    /*class Builder {
         private final List<String> ingredients;
         private Pizza.Size size;
         private Pizza.Dough doughType;
@@ -35,22 +35,19 @@ public interface PizzaBuilder {
         }
     }
 
-    List<String> basicIngredients();
-
     default Builder startBaking() {
         return new Builder(basicIngredients());
-    }
+    }*/
+
+    List<String> basicIngredients();
 
     default Pizza makePizza(Pizza.Size size, Pizza.Dough doughType) {
-        Builder newPizza = startBaking();
-        return newPizza.setSize(size).setDough(doughType).build();
+        return new Pizza(size, doughType, basicIngredients());
     }
 
     default Pizza makePizza(List<String> extraIngredients, Pizza.Size size, Pizza.Dough doughType) {
-        Builder newPizza = startBaking();
-        for (String ingredient : extraIngredients) {
-            newPizza.addIngredient(ingredient);
-        }
-        return newPizza.setSize(size).setDough(doughType).build();
+        List<String> ingredients = new ArrayList<>(basicIngredients());
+        ingredients.addAll(extraIngredients);
+        return new Pizza(size, doughType, ingredients);
     }
 }
