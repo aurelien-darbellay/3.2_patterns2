@@ -9,15 +9,15 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        PizzaBuilder hawaianBuilder = new HawaianPizzaBuilder();
-        Pizza smallHawaianAmericanDoe = hawaianBuilder.setSize(Pizza.Size.SMALL).setDough(Pizza.Dough.AMERICAN).build();
-        smallHawaianAmericanDoe.print();
-        Pizza familyHawaianCrustyDoeExtraBacon = hawaianBuilder.addIngredient("Bacon").setSize(Pizza.Size.FAMILIAR).setDough(Pizza.Dough.CRUSTY).build();
-        familyHawaianCrustyDoeExtraBacon.print();
-        MestrePizzer aurelien = new MestrePizzer(new VegetarianPizzaBuilder());
-        Pizza bakedByAurelienFirst = aurelien.bakePizza(Pizza.Size.SMALL, Pizza.Dough.CLASSIC);
-        bakedByAurelienFirst.print();
-        Pizza bakedBYAurelienSecond = aurelien.bakePizza(Pizza.Size.MEDIUM, Pizza.Dough.AMERICAN, List.of("Hot Chilli Pepper"));
-        bakedBYAurelienSecond.print();
+        PizzaBuilder hawaianOven = new HawaianPizzaBuilder();
+        Pizza hawaian1 = hawaianOven.makePizza(Pizza.Size.SMALL, Pizza.Dough.AMERICAN);
+        Pizza hawaian2 = hawaianOven.makePizza(List.of("Mushroom"), Pizza.Size.MEDIUM, Pizza.Dough.CRUSTY);
+        MestrePizzer vegetarianPizzaiolo = new MestrePizzer(new VegetarianPizzaBuilder());
+        Pizza veggie1 = vegetarianPizzaiolo.bakePizza(Pizza.Size.FAMILIAR, Pizza.Dough.CLASSIC);
+        Pizza veggie2 = vegetarianPizzaiolo.bakePizza(Pizza.Size.SMALL, Pizza.Dough.CRUSTY, List.of("Red Hot Chilli Pepper"));
+        hawaian1.print();
+        hawaian2.print();
+        veggie1.print();
+        veggie2.print();
     }
 }

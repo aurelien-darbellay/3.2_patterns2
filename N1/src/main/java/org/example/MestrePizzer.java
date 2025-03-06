@@ -11,13 +11,12 @@ public class MestrePizzer {
     public MestrePizzer(PizzaBuilder oven) {
         this.oven = oven;
     }
-    public Pizza bakePizza(Pizza.Size size, Pizza.Dough doughType){
-        return oven.setSize(size).setDough(doughType).build();
+
+    public Pizza bakePizza(Pizza.Size size, Pizza.Dough doughType) {
+        return oven.makePizza(size, doughType);
     }
-    public Pizza bakePizza(Pizza.Size size, Pizza.Dough doughType, List<String> extraIngredients){
-        for (String ingredient : extraIngredients){
-            oven.addIngredient(ingredient);
-        }
-        return oven.setSize(size).setDough(doughType).build();
+
+    public Pizza bakePizza(Pizza.Size size, Pizza.Dough doughType, List<String> extraIngredients) {
+        return oven.makePizza(extraIngredients, size, doughType);
     }
 }
