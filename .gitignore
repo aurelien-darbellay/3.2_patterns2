@@ -1,2 +1,38 @@
-out/
+# Compiled class files
+*.class
+
+# Log files
+*.log
+
+# BlueJ files
+*.ctxt
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+# Gradle files
+**/.gradle/
+**/build/
+!gradle/wrapper/gradle-wrapper.jar
+
+# Gradle Wrapper files
+**./gradle-app.setting
+
+
+# IntelliJ IDEA
 .idea/
+*.iml
+*.iws
+out/
+
+
+# Windows system files
+Thumbs.db
+ehthumbs.db
+
+
