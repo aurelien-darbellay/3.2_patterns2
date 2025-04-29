@@ -5,7 +5,7 @@ import java.util.Objects;
 
 public class Pizza {
     public enum Dough {
-        CRUSTY,CLASSIC,AMERICAN
+        CRUSTY,CLASSIC
     }
     public enum Size {
         SMALL(16),MEDIUM(22),FAMILIAR(36);
@@ -20,7 +20,7 @@ public class Pizza {
     private Size size;
     private Dough doughType;
     private List<String> toppings;
-
+    public Pizza(){};
     public Pizza(Size size, Dough doughType, List<String> toppings) {
         this.size = size;
         this.doughType = doughType;
